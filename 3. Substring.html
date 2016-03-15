@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Substrings</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+        <script>
+            var str = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+            var lookFor = "in";
+            jsConsole.writeLine(CountWords(str, lookFor) + " times!");
+           
+            function CountWords(inputString, lookFor) {
+                var counter = 0;
+                var index = 0;
+
+                while (index != -1 && index < inputString.length) 
+                {
+                    index = inputString.toLowerCase().indexOf(lookFor, index);
+                    if (index != -1) 
+                    {
+                        counter++;
+                        index += lookFor.length - 1;
+                    }
+                }
+                return counter;
+            }
+        </script>
+    </body>
+</html>

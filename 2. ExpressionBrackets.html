@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Expression</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="tb-first">Enter expression: </label>
+	<input type="text" id="tb-expression"/>
+	<br />							 
+	<a href="#" onclick="onClick()">Check brackets:</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>
+	    function checkBrackets(theExpression)
+	    {
+	        var count = 0;
+	        for (var i = 0; i < theExpression.length; i++)
+	        {
+	            if (theExpression[i] == "(")
+	            {
+	                count++;
+	            }
+	            if (theExpression[i] == ")")
+	            {
+	                count--;
+	            }
+	            if (count < 0)
+	            {
+	                break;
+	            }
+	        }
+	        if (count == 0) {
+	            jsConsole.writeLine("Corect brackets: " + theExpression);
+	        }
+	        else
+	        {
+	            jsConsole.writeLine("Incorect brackets: " + theExpression);
+	        }
+	    }
+	    
+	    function onClick() 
+	    {
+	       var myExpression = jsConsole.read("#tb-expression");
+	       checkBrackets(myExpression);
+	    }
+	</script>			  
+</body>
+</html>

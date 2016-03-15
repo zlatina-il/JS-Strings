@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Placeholders</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function stringFormat(str) {
+            var selfArguments = arguments
+
+            return str.replace(/{(\d+)}/g, function (match, p1) {
+                return selfArguments[+p1 + 1]
+            })
+        }
+        jsConsole.writeLine(stringFormat('{0}, {1}!', 'Hello', 'World'));
+    </script>
+</body>
+</html>

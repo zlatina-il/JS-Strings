@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Palindromes</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<form name="sForm" action="#" method="post">
+E-mails: <input type="text" name="str" value="" /><input type="button" name="" value="Extract" onclick="GetPalindromes(document.sForm.str.value)" />
+</form>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function GetPalindromes(str) {
+            var words = [];
+            str = str.split('.').join(' ');
+            words = str.replace(/,/g, " ").split(" ");
+
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var isPalindrome = true;
+
+                if (word.length <= 1) {
+                    continue;
+                }
+
+                for (var j = 0; j < parseInt((word.length / 2)) ; j++) {
+                    if (word[j] != word[word.length - j - 1]) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+
+                if (isPalindrome == true) {
+                    jsConsole.writeLine(word);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

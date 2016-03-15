@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Strings - Replace HTML</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body onload="ReplaceHTML()">
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        
+        function ReplaceHTML(str) {
+            var str = '<p>Please visit <a href="http://academy.telerik.com">our site</a> to choose a trainning course. Also visit <a href="www.bgdev.org">our forum</a> to discuss the courses.</p>';
+            var replaced = str.replace(/<a href="/g, '[URL=');
+            replaced = replaced.replace(/<\/a>/g, '[/URL]');
+            replaced = replaced.replace(/">/g, '>');
+            jsConsole.writeLine(replaced);
+            alert(replaced);
+        }
+    </script>
+</body>
+</html>

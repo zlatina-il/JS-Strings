@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Strings</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+        <script>
+       
+            var inputString = "example@abv.bg";
+
+            function ExtractEmail(str) {
+    
+                var input = str;
+                var matches = [];
+                var match;
+                var regex = /([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)/g;
+            
+                while (match = regex.exec(input)) {
+                    matches.push(match[0]);
+                }
+            
+                return matches;
+            }
+            
+            jsConsole.writeLine(ExtractEmail(inputString).join('<br />'));
+        </script>
+    </body>
+</html>
